@@ -38,7 +38,7 @@ class EmployeeService {
         }
         
         try{
-            axios.post(`http://localhost:7000/api/email`, emailData, {
+            axios.post(`http://54.166.126.188:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,4 +1,4 @@
-@baseURL = https://localhost:7000/api
+@baseURL = https://54.166.126.188:7000/api
 
 ### POST email
 POST {{baseURL}}/email

@@ -1,4 +1,4 @@
-@baseURL = https://localhost/api
+@baseURL = https://54.166.126.188/api
 
 ### GET all payments
 GET {{baseURL}}/payments

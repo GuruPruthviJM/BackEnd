@@ -1,4 +1,4 @@
-@baseURL = http://localhost:7000/api
+@baseURL = http://54.166.126.188:7000/api
 
 ###Login User
 # @name loginAdmin

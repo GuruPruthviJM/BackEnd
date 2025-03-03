@@ -48,7 +48,7 @@ class TicketService {
 
             const response = await this.ticketRepository.update({ ticketId: id }, ticketData);
 
-            const userResponse = await axios.get(`http://localhost:8080/api/customers/${ticket.customerId}`, {
+            const userResponse = await axios.get(`http://54.166.126.188:8080/api/customers/${ticket.customerId}`, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,21 +68,21 @@ class TicketService {
                 to: userEmail
             };
             console.log("Sending email with data:", emailData);
-            await axios.post(`http://localhost:7000/api/email`, emailData, {
+            await axios.post(`http://54.166.126.188:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
             // console.log("Guru", ticket.employeeId);
-            await axios.get(`http://localhost:8000/api/employees/${ticket.employeeId}/stats`, {
+            await axios.get(`http://54.166.126.188:8000/api/employees/${ticket.employeeId}/stats`, {
                 httpsAgent,
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 }
             });
-            const employee = await axios.get(`http://localhost:8000/api/employees/${ticket.employeeId}`,{
+            const employee = await axios.get(`http://54.166.126.188:8000/api/employees/${ticket.employeeId}`,{
                 httpsAgent,
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ class TicketService {
             })
             console.log(employee.data.managerId);
             
-            await axios.get(`http://localhost:5000/api/managers/${employee.data.managerId}/stats`, {
+            await axios.get(`http://54.166.126.188:5000/api/managers/${employee.data.managerId}/stats`, {
                 httpsAgent,
                 headers: {
                     Authorization: `Bearer ${token}`,

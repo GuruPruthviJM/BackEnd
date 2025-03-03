@@ -80,7 +80,7 @@ class EmployeeService {
         const employee = await this.employeeRepository.findOne({ employeeId: id});
         if(!employee)
             throw new Error('Employee not found');
-        const response = await axios.get(`http://localhost:8000/api/employees/${employee.employeeId}/tickets`, {
+        const response = await axios.get(`http://54.166.126.188:8000/api/employees/${employee.employeeId}/tickets`, {
             httpsAgent,
             headers: {
                 'Content-Type': 'application/json',

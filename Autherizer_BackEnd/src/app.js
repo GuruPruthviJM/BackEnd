@@ -23,7 +23,7 @@ async function createApp(){
     
     // Set CORS options to explicitly allow the origin and credentials.
     const corsOptions = {
-        origin: 'http://localhost', // Adjust this if your frontend runs on a different URL or port
+        origin: 'http://54.166.126.188', // Adjust this if your frontend runs on a different URL or port
         credentials: true,
     };
     app.use(cors(corsOptions));
