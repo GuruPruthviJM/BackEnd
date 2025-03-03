@@ -15,7 +15,7 @@ async function createApp(){
         origin: 'http://54.166.126.188', // Adjust this if your frontend runs on a different URL or port
         credentials: true,
     };
-    app.use(cors(corsOptions));
+    app.use(cors());
     app.use(express.static(path.join(process.cwd(), 'public')))
     app.use(tokenDecorder(public_key, {algorithms: ['RS256']}));
     app.use('/api/employees', employeeRouter())
