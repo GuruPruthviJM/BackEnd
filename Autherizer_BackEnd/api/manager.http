@@ -1,4 +1,4 @@
-@baseURL = https://54.166.126.188:7000/api
+@baseURL = https://18.209.26.169:7000/api
 
 ###GET all managers
 GET {{baseURL}}/managers

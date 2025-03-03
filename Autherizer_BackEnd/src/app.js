@@ -23,7 +23,7 @@ async function createApp() {
  
     // CORS Configuration with Explicit Origin and Credentials
     const corsOptions = {
-        origin: 'http://54.166.126.188', // Ensure this matches your frontend origin
+        origin: 'http://18.209.26.169', // Ensure this matches your frontend origin
         credentials: true, // Allow credentials (cookies, authorization headers)
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed request methods
         allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization' // Allowed headers

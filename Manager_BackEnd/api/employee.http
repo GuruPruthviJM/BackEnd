@@ -1,4 +1,4 @@
-@baseURL = https://54.166.126.188:5000/api
+@baseURL = https://18.209.26.169:5000/api
 
 ### GET all employees
 GET {{baseURL}}/employees
