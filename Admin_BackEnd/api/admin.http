@@ -1,5 +1,5 @@
-@baseURL = https://localhost:3000/api
-@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MDQ4NTA0MCwiZXhwIjoxNzQwNDg4NjQwLCJjbGFpbXMiOnsibmFtZSI6IlNwb29ydGhpIEcgUyIsImVtYWlsIjoic3Bvb3J0aGlAZ21haWwuY29tIiwicm9sZXMiOlsiYWRtaW4iXSwidXNlck5hbWUiOiJzcG9vcnRoaS1ncyJ9fQ.TO-6t9Ht8eOQ6CZ2ZxAJTNuJosqRIwTTaH-y11GyXTR2LP_buUUZW022jB8pyCcIN_Adqlk1UDt9wIex3uN8PybEuH1pnDTwINodB7AZjtzLXEhdqp68_SZjWnCeRGjq-xZ7hz5vRZ_A59atAY983wL-t1v0-Gak2y40tcZjzgwplQb3oocFDI2WFLzyUhPD9mIuO9WFqYoKFmVePB2OnJ05NrNNqorRFgOzZm_9RjPo0mrd32rvNDLWNZ6OnM59VxiK0kSCSGD06fD2RoDPvsIJdfYEkVuCy8N3o-s5DEGDPv2hul4kCEAIrXK7-w-kZa7Oig14hGtqmYM2JTwrZg
+@baseURL = http://localhost:3000/api
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MTAxNTgyMiwiZXhwIjoxNzQxMDE5NDIyLCJjbGFpbXMiOnsibmFtZSI6IlNwb29ydGhpIEcgUyIsImVtYWlsIjoic3Bvb3J0aGlAZ21haWwuY29tIiwicm9sZXMiOlsiYWRtaW4iXSwidXNlck5hbWUiOiJzcG9vcnRoaS1ncyJ9fQ.n8-iTFI12YEAVlWJKVQdmnzIQVJcmtGBoJ3cDapt1r0-An4_R4qJDLdzaaeHi9ItOZ5GkCcCx9jFahHsL9LG1oTWaCjP14XPHKnW3GBLlEYyjyw1lIXZxZ_tIRKxk4tS7sLI2-lH4cPEJ5gB_q1L25C97i49XZfwZzXNztQNLDUZ4FJMHLB6DMRjY-2QWoatx7YNn2o36J32TCnrBto8qZP9lC7jV8XVbX8-hseQXThG8ssWvCuBL2zBcbIdvO7K4CVhRIOkYbfS2ZoMRJm1HSvA5wBvidyTUUEmhRhD5av20-ms5W_ej8N43a-vpUNB2w8BnkMPnikSlfSFPH4gew
 
 ### GET all admins
 GET {{baseURL}}/admins
@@ -96,15 +96,15 @@ GET {{baseURL}}/admins/INVALID_ID
 ### POST a new admin
 POST {{baseURL}}/admins
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
-    "Admin_ID": "admin12345",
-    "email": "guru@example.com",
-    "password": "securePass123",
-    "username": "guru_pruthvi",
+    "email": "gurupruthvi61@gmail.com",
+    "password": "901@Guru",
+    "username": "guru pruthvi",
     "phone_Number": "9876543210",
-    "name": "Guru Pruthvi",
-    "department": "finance"
+    "name": "Guru Pruthvi J M",
+    "department": "Product-and-Platform-Engineering"
 }
 
 ### POST a new admin
@@ -125,12 +125,10 @@ Content-Type: application/json
 DELETE {{baseURL}}/admins/admin12345
 
 ### PUT to update the admin details
-PUT {{baseURL}}/admins/admin12345 
+PUT {{baseURL}}/admins/spoorthi-gs
+Authorization: bearer {{token}} 
 Content-Type: application/json
 
 {
-    "email": "guru@example.com",
-    "password": "securePass",
-    "username": "guru_pruthvi",
-    "department": "operations"
+    "password": "securePass@123"
 }

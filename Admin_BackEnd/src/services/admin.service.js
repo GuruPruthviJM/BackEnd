@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 class AdminService {
     constructor(adminRepository) {
         this.adminRepository = adminRepository;
@@ -12,6 +13,7 @@ class AdminService {
     }
 
     async createAdmin(admin) {
+        admin.password = await bcrypt.hash(admin.password, 10);
         return await this.adminRepository.create(admin);
     }
 
