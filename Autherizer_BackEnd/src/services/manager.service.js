@@ -37,7 +37,7 @@ class ManagerService {
         }
         
         try{
-            axios.post(`https://localhost:7000/api/email`, emailData, {
+            axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'

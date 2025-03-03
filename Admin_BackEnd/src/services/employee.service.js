@@ -22,7 +22,7 @@ class EmployeeService {
 
     async createEmployee(employee) {
         try{
-            const response = await axios.post(`https://localhost:7000/api/employees`, employee, {
+            const response = await axios.post(`http://localhost:7000/api/employees`, employee, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ class EmployeeService {
             }
             if(employeeData.password)
                 employeeData.password = await bcrypt.hash(employeeData.password, 10);
-            await axios.post(`https://localhost:7000/api/email`, emailData, {
+            await axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ class EmployeeService {
                 to: employee.email
             }
             const response = await this.employeeRepository.deleteData(employee?._id);
-            await axios.post(`https://localhost:7000/api/email`, emailData, {
+            await axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'

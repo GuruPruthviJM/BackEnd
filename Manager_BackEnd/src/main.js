@@ -6,7 +6,7 @@ const createApp = require('./app');
 async function main(){
     const app = await createApp();
     httpx.runApp({
-        protocol:'https',
+        protocol:'http',
         requestHandler:app, 
         initializer: async()=>{
             await mongoose.connect(process.env.MONGODB_URL);

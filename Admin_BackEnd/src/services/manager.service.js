@@ -23,7 +23,7 @@ class ManagerService {
     async createManager(manager) {
         // console.log("pruthvi: ", manager);
         try {
-            const response = await axios.post(`https://localhost:7000/api/managers`, manager, {
+            const response = await axios.post(`http://localhost:7000/api/managers`, manager, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ class ManagerService {
             }
             if(managerData.password)
                 managerData.password = await bcrypt.hash(managerData.password, 10);
-            await axios.post(`https://localhost:7000/api/email`, emailData, {
+            await axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ class ManagerService {
             }
             console.log(id);
             const response = await this.managerRepository.deleteData(manager?._id);
-            await axios.post(`https://localhost:7000/api/email`, emailData, {
+            await axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'

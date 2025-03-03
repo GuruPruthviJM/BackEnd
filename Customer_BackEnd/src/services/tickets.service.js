@@ -21,7 +21,7 @@ class TicketService {
 
     async createTicket(ticket, token) { 
         try {
-            const customer = await axios.get(`https://localhost:443/api/customers/${ticket.customerId}`,{
+            const customer = await axios.get(`http://localhost:8080/api/customers/${ticket.customerId}`,{
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ class TicketService {
             
             ticket.latitude=customer.data.latitude
             ticket.longitude=customer.data.longitude
-            const allManagers = await axios.get('https://localhost:5000/api/managers', {
+            const allManagers = await axios.get('http://localhost:5000/api/managers', {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ class TicketService {
                 throw new Error('No manager found in the specified department');
             }
             const employeeTicketCount = await axios.get(
-                `https://localhost:5000/api/managers/${manager.managerId}/collegue/ticketCount`,{
+                `http://localhost:5000/api/managers/${manager.managerId}/collegue/ticketCount`,{
                     httpsAgent,
                     headers: {
                         'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ class ManagerService {
         const manager = await this.getManagerById(id)
         if(!manager)
             throw new Error('Manager not found')
-        const response = await axios.get(`https://localhost:5000/api/managers/${id}/collegue`, {
+        const response = await axios.get(`http://localhost:5000/api/managers/${id}/collegue`, {
             httpsAgent,
             headers: {
                 'Content-Type': 'application/json',
