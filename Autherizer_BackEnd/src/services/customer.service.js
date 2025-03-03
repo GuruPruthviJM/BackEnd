@@ -141,7 +141,7 @@ class CustomerService{
         if (!user) throw new AuthenticationError(`User with email ${email} not found`, { email });
         const decryptedOTP = await CryptoJS.AES.decrypt(user.otp, process.env.JWT_SECRET).toString(CryptoJS.enc.Utf8);
         if (decryptedOTP!= otp) throw new AuthenticationError(`Invalid OTP`, { email });
-        await this.otpRepository.remove(email);
+        await this.otpRepository.removeRepo(email);
         return {
             status: 200,
             message: "OTP verification successful",

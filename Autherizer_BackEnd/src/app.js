@@ -21,24 +21,12 @@ async function createApp() {
     const app = express();
     app.use(express.json());
  
-    // Define allowed origins for CORS
-    const allowedOrigins = [
-        'http://18.209.26.169',  // New frontend origin
-        'http://54.166.126.188'  // Previously allowed origin
-    ];
- 
-    // CORS Configuration
+    // CORS Configuration with Explicit Origin and Credentials
     const corsOptions = {
-        origin: function (origin, callback) {
-            if (!origin || allowedOrigins.includes(origin)) {
-                callback(null, origin);
-            } else {
-                callback(new Error('Not allowed by CORS'));
-            }
-        },
-        credentials: true, 
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization'
+        origin: 'http://18.209.26.169', // Ensure this matches your frontend origin
+        credentials: true, // Allow credentials (cookies, authorization headers)
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed request methods
+        allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization' // Allowed headers
     };
  
     app.use(cors(corsOptions));
