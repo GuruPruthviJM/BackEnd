@@ -42,6 +42,7 @@ class CustomerService{
     }
 
     async login({email, password}){
+        console.log("Guru");
         let user = await this.customerRepository.getByEmailId({email})
         if(!user) throw new AuthenticationError(`Invalid credentials:${email}`,{email});
         let match = await bcrypt.compare(password,user.password);    
