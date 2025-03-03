@@ -13,7 +13,11 @@ async function createApp(){
 
     const app = express();
     app.use(express.json());
-    app.use(cors());
+    const corsOptions = {
+        origin: 'http://54.166.126.188:7000', // Adjust this if your frontend runs on a different URL or port
+        credentials: true,
+    };
+    app.use(cors(corsOptions));
     app.use(express.static(path.join(process.cwd(), 'public')))
     app.use(tokenDecorder(public_key, {algorithms: ['RS256']}));
     app.use('/api/managers', managerRouter());
