@@ -56,11 +56,9 @@ class CustomerService{
         return {name:user.name, email:user.email, roles: user.roles, userName: user.customerID}
     }
 
-    async sendEmail(employee){
-        console.log(employee);
-        
+    async sendEmail(employee, sub){
         const emailData = {
-            subject: "OTP for Reset Password",
+            subject: sub||"OTP for Reset Password",
             htmlVal: `
                 <p>Dear Customer,</p>
                 <p>Someone recently asked for a One Time Password (OTP) to  <b>Reset the Password of Customer Management System</b>.</p>
@@ -92,17 +90,12 @@ class CustomerService{
         if (userOTP) {
             await this.otpRepository.remove({email})
         }
-        console.log("Before User:", email);
         let user = await this.customerRepository.findOne({ email }); 
-        console.log(user);
         if (user) {
-            console.log("hi");
             throw new Error(`User with email ${email} is already registered`);
-        }          
-        console.log(email);
-        console.log("Guru registered");
+        }
         let otp = Math.floor(100000 + Math.random() * 900000).toString(); // Convert to string
-        await this.sendEmail({email, otp})
+        await this.sendEmail({email, otp}, "OTP for validating Email")
         const encryptedOTP = await CryptoJS.AES.encrypt(otp, process.env.JWT_SECRET).toString();
         console.log(otp,  CryptoJS.AES.decrypt(encryptedOTP, process.env.JWT_SECRET).toString(CryptoJS.enc.Utf8));
         
