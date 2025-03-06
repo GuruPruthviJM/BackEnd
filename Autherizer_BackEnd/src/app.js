@@ -8,7 +8,6 @@ const adminRouter = require('./routers/admin.router');
 const authorizerRouter = require('./routers/authorizer.router');
 const customerRouter = require('./routers/customer.router');
 const emailRouter = require('./routers/email.router');
-const notificationRouter = require('./routers/notification.router');
 const { tokenDecorder } = require('ca-webutils/jwt');
 const cors = require('cors');
  
@@ -56,7 +55,6 @@ async function createApp() {
     app.use('/api/authorizers', authorizerRouter());
     app.use('/api/customers', customerRouter());
     app.use('/api/email', emailRouter());
-    app.use('/api/notifications', notificationRouter());
  
     return app;
 }
