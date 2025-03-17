@@ -10,12 +10,12 @@ async function createApp(){
     const app = express();
     app.use(express.json());
     // const allowedOrigins = [
-    //     'http://18.209.26.169',
-    //     'http://18.209.26.169:3000',
-    //     'http://18.209.26.169:7000',
-    //     'http://18.209.26.169:8000',
-    //     'http://18.209.26.169:8080',
-    //     'http://18.209.26.169:5000',
+    //     'http://localhost',
+    //     'http://localhost:3000',
+    //     'http://localhost:7000',
+    //     'http://localhost:8000',
+    //     'http://localhost:8080',
+    //     'http://localhost:5000',
     // ];
     // const corsOptions = {
     //     origin: function (origin, callback) {

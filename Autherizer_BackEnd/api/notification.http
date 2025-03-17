@@ -1,4 +1,4 @@
-@baseURL = https://18.209.26.169:7000/api
+@baseURL = https://localhost:7000/api
 
 ### notifications
 

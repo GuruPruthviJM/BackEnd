@@ -42,7 +42,6 @@ class CustomerService{
     }
 
     async login({email, password}){
-        console.log("Guru");
         let user = await this.customerRepository.getByEmailId({email})
         if(!user) throw new AuthenticationError(`Invalid credentials:${email}`,{email});
         let match = await bcrypt.compare(password,user.password);    
@@ -73,7 +72,7 @@ class CustomerService{
             to: employee.email
         }
         try{
-            axios.post(`http://18.209.26.169:7000/api/email`, emailData, {
+            axios.post(`http://localhost:7000/api/email`, emailData, {
                 httpsAgent,
                 headers: {
                     'Content-Type': 'application/json'

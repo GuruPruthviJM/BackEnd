@@ -1,4 +1,4 @@
-@baseURL = https://18.209.26.169:5000/api
+@baseURL = https://localhost:5000/api
 
 ### GET all tickets
 GET {{baseURL}}/tickets

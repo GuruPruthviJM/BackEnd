@@ -20,12 +20,12 @@ async function createApp() {
 
     // Define allowed origins for CORS
     // const allowedOrigins = [
-    //     'http://18.209.26.169',
-    //     'http://18.209.26.169:3000',
-    //     'http://18.209.26.169:7000',
-    //     'http://18.209.26.169:8000',
-    //     'http://18.209.26.169:8080',
-    //     'http://18.209.26.169:3000',
+    //     'http://localhost',
+    //     'http://localhost:3000',
+    //     'http://localhost:7000',
+    //     'http://localhost:8000',
+    //     'http://localhost:8080',
+    //     'http://localhost:3000',
     // ];
 
     // CORS Configuration
