@@ -1,0 +1,72 @@
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+class EmailNotifyDropdown extends Component {
+  state = {
+    options: [
+      'Ticket Status',
+      'Portable Asset',
+      'Comments',
+      'SRT Group',
+    ],
+    selectedOptions: [],
+    isDropdownOpen: false,
+  };
+
+  toggleDropdown = () => {
+    this.setState(prevState => ({
+      isDropdownOpen: !prevState.isDropdownOpen
+    }));
+  };
+
+  handleCheckboxChange = (option) => {
+    this.setState(prevState => {
+      const { selectedOptions } = prevState;
+      const isSelected = selectedOptions.includes(option);
+      return {
+        selectedOptions: isSelected
+          ? selectedOptions.filter(item => item !== option)
+          : [...selectedOptions, option],
+      };
+    });
+  };
+
+  render() {
+    const { options, selectedOptions, isDropdownOpen } = this.state;
+
+    return (
+      <div className="mb-3" style={{ width: '300px' }}>
+        <label className="form-label"><strong>Email Notify</strong></label>
+        <div className="dropdown">
+          <button
+            className="form-select text-start"
+            onClick={this.toggleDropdown}
+          >
+            {selectedOptions.length > 0 ? selectedOptions.join(', ') : 'Select'}
+          </button>
+
+          {isDropdownOpen && (
+            <div className="border rounded p-2 position-absolute bg-white shadow" style={{ zIndex: 10 }}>
+              {options.map((option, index) => (
+                <div className="form-check" key={index}>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    checked={selectedOptions.includes(option)}
+                    onChange={() => this.handleCheckboxChange(option)}
+                    id={`checkbox-${index}`}
+                  />
+                  <label className="form-check-label" htmlFor={`checkbox-${index}`}>
+                    {option}
+                  </label>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default EmailNotifyDropdown;
